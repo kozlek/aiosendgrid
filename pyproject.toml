@@ -1,0 +1,48 @@
+[tool.poetry]
+name = "aiosendgrid"
+version = "0.1.0"
+description = "Async SendGrid client based on httpx"
+authors = ["Thomas BERDY <thomas.berdy@outlook.com>"]
+readme = "README.md"
+repository = "https://github.com/kozlek/aiosendgrid"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+httpx = { version = ">=0.22.0", extras = ["http2"] }
+sendgrid = { version = ">=6.9.6", optional = true }
+
+[tool.poetry.dev-dependencies]
+ipdb = "*"
+ipython = "*"
+mypy = "~0.931"
+pytest = "~7.0.0"
+pytest-asyncio = "~0.18.1"
+pytest-cov = "~3.0.0"
+pytest-httpx = "~0.20.0"
+pytest-sugar = "~0.9.4"
+
+[tool.poetry.extras]
+helpers = ["sendgrid"]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+addopts = [
+    "--cov=aiosendgrid",
+]
+asyncio_mode = "strict"
+python_files = [
+    "tests.py",
+    "test_*.py",
+]
+testpaths = [
+    "tests",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "if TYPE_CHECKING:"
+]
+
