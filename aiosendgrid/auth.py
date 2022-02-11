@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import Any, Generator, TYPE_CHECKING
+from typing import TYPE_CHECKING, Any, Generator
 
 from httpx import Auth
 
