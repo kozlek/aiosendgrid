@@ -1,7 +1,11 @@
 # aiosendgrid
 
-A simple SendGrid asynchronous client based on [httpx](https://github.com/encode/httpx).
+[![pypi](https://img.shields.io/pypi/v/aiosendgrid.svg)](https://pypi.python.org/pypi/aiosendgrid)
+[![versions](https://img.shields.io/pypi/pyversions/aiosendgrid.svg)](https://github.com/kozlek/aiosendgrid)
+[![code style](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![license](https://img.shields.io/github/license/kozlek/aiosendgrid.svg)](https://github.com/kozlek/aiosendgrid/blob/master/LICENSE)
 
+A simple SendGrid asynchronous client based on [httpx](https://github.com/encode/httpx).
 
 # Installation
 
@@ -23,7 +27,7 @@ pip install aiosendgrid[helpers]
 import aiosendgrid
 from sendgrid.helpers.mail import Content, Email, Mail, To
 
-SENDGRID_API_KEY = "SG.XXX" 
+SENDGRID_API_KEY = "SG.XXX"
 
 from_email = Email("test@example.com")
 to_email = To("test@example.com")

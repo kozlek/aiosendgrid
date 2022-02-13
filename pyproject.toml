@@ -12,10 +12,16 @@ httpx = { version = ">=0.22.0", extras = ["http2"] }
 sendgrid = { version = ">=6.9.6", optional = true }
 
 [tool.poetry.dev-dependencies]
+autoflake = "~1.4"
+black = "~22.1.0"
+flake8 = "~4.0.1"
+flake8-bugbear = "~22.1.11"
+flake8-pie = "~0.15.0"
 ipdb = "*"
 ipython = "*"
+isort = "~5.10.1"
 mypy = "~0.931"
-pytest = "~7.0.0"
+pytest = "~7.0.1"
 pytest-asyncio = "~0.18.1"
 pytest-cov = "~3.0.0"
 pytest-httpx = "~0.20.0"
@@ -30,19 +36,27 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.pytest.ini_options]
 addopts = [
+    "--strict-config",
+    "--strict-markers",
     "--cov=aiosendgrid",
 ]
 asyncio_mode = "strict"
-python_files = [
-    "tests.py",
-    "test_*.py",
-]
-testpaths = [
-    "tests",
-]
+python_files = ["tests.py", "test_*.py"]
+testpaths = ["tests"]
 
 [tool.coverage.report]
 exclude_lines = [
     "if TYPE_CHECKING:"
 ]
 
+[tool.black]
+target-version = ["py39", "py310"]
+
+[tool.isort]
+profile = "black"
+py_version = 39
+combine_as_imports = true
+
+[tool.mypy]
+python_version = 3.9
+disallow_untyped_defs = true

@@ -14,7 +14,7 @@ class BearerAuth(Auth):
     def __init__(self, bearer_token: str, /):
         self.bearer_token = bearer_token
 
-    def __eq__(self, other: Any):
+    def __eq__(self, other: Any) -> bool:
         return (
             isinstance(other, self.__class__)
             and other.bearer_token == self.bearer_token
